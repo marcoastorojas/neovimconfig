@@ -6,7 +6,7 @@ return {
     local masonlspconfig = require('mason-lspconfig')
     local lspconfig = require('lspconfig')
     masonlspconfig.setup({
-      ensure_installed = { "lua_ls" },
+      ensure_installed = { "lua_ls", "omnisharp" },
     })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -57,5 +57,10 @@ return {
     })
 
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
+    vim.keymap.set('n', '<Leader>h', '<C-o>', {})
+    vim.keymap.set('n', '<Leader>l', '<C-i>', {})
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, {})
   end
 }

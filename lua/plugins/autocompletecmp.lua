@@ -19,13 +19,26 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = {
+        ['<C-j>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()      -- ejecuta la acción por defecto si el menú no está visible
+          end
+        end, { 'i', 's' }), -- se aplica en modo insert y select
+
+        ['<C-k>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<Esc>'] = cmp.mapping.abort(),
         ['<C-Space>'] = cmp.mapping.complete()
-      }),
+      },
       sources = cmp.config.sources(
         {
           { name = 'nvim_lsp' },
