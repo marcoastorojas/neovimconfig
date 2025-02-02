@@ -6,7 +6,7 @@ return {
     local masonlspconfig = require('mason-lspconfig')
     local lspconfig = require('lspconfig')
     masonlspconfig.setup({
-      ensure_installed = { "lua_ls", "omnisharp" },
+      ensure_installed = { "lua_ls", "omnisharp", "ts_ls" },
     })
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -28,7 +28,7 @@ return {
           lspconfig.ts_ls.setup({
             capabilities = capabilities,
           })
-        elseif server_name == "omnisharp" then
+        elseif server_name == "omnisharp" then --hola mundo
           lspconfig.omnisharp.setup({
             capabilities = capabilities,
             cmd = { "dotnet", "/home/marco/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
