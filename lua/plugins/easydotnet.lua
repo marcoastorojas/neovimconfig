@@ -31,7 +31,6 @@ return -- lazy.nvim
       -- You should define this function to return a hardcoded path for a performance improvement 🚀
       --
       get_sdk_path = get_sdk_path,
-      ---@type TestRunnerOptions
       test_runner = {
         ---@type "split" | "float" | "buf"
         viewmode = "float",
