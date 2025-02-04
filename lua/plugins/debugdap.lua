@@ -2,7 +2,7 @@ return {
   "mfussenegger/nvim-dap",
   dependencies = {
     "rcarriga/nvim-dap-ui",
-    "nvim-neotest/nvim-nio"
+    "nvim-neotest/nvim-nio",
   },
   config = function()
     require("dapui").setup({})
@@ -29,9 +29,11 @@ return {
     vim.keymap.set('n', '<F6>', dap.terminate, {}) -- Mapeo para detener el debug
 
     local M = {
-      register_dotnet_dap = require("plugins.debugconfig.dotnet")
+      register_dotnet_dap = require("plugins.debugconfig.dotnet"),
+      register_javascript_dap = require("plugins.debugconfig.javascript")
     }
 
     M.register_dotnet_dap()
+    M.register_javascript_dap()
   end
 }
