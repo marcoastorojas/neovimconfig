@@ -12,6 +12,8 @@ vim.api.nvim_set_keymap('i', '<CapsLock>', '<Esc>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<CapsLock>', '<Nop>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward-to)')
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward-to)')
+vim.keymap.set('n', '<C-f>', '/', { noremap = true, silent = false })
+vim.keymap.set('n', '<Esc>', ':nohlsearch<CR><Esc>', { noremap = true, silent = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*", -- Se aplica a todos los archivos; puedes especificar patrones, e.j. "*.lua"
   callback = function()
